@@ -1,6 +1,7 @@
 import React from 'react';
 import SiteStore from '../stores/SiteStore.js';
 import Actions from '../actions/Actions.js';
+import { Alert, Button } from 'react-bootstrap';
 
 export default class Header extends React.Component {
 
@@ -35,18 +36,10 @@ export default class Header extends React.Component {
     renderNotification() {
 
         if (this.state.notification) {
-            let style = {
-                position: 'absolute',
-                width: 'inherit',
-                zIndex: 9999
-            };
             return (
-                <div style={style} className="alert alert-h" role="alert">
+                <Alert onDismiss={this.closeNotification}>
                     {this.state.notification}
-                    <button type="button" className="close" onClick={this.closeNotification}>
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                </Alert>
             )
         }
     }
@@ -58,9 +51,9 @@ export default class Header extends React.Component {
     render() {
         return (
             <div>
-                <h1>Header</h1>
+                <h1>SCL Template v0.1</h1>
                 {this.renderNotification()}
-                <a onClick={this.testNotification}>test notification</a>
+                 <Button onClick={this.testNotification} bsStyle="info">Test Notification</Button>
             </div>
         )
     }

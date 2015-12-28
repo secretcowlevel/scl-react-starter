@@ -10,15 +10,17 @@ export default class Root extends React.Component {
             user: null
         };
     }
-    
+
     render() {
         return (
-            <div>
-                <Header />
-                <div id="main-container center">
-                    {this.props.children}
+            <div className="container">
+                <div className="col-md-12">
+                    <Header />
+                    <div id="main-container center">
+                        {this.props.children}
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
         );
     }
