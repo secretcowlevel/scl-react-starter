@@ -3,7 +3,7 @@
 ## To Use:
 - clone this shit
 - `npm i` this shit
-- open `localhost:3000/webpack-dev-server`
+- open `localhost:8080/webpack-dev-server`
 - make cool shit
 
 .. or don't.
