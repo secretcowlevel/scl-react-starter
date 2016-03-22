@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
             <section id="footer">
                 <div className="row">
                     <div className="col-md-12">
-                        FOOTER
+                        
                     </div>
                 </div>
             </section>

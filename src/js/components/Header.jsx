@@ -1,63 +1,20 @@
-import React from 'react';
-import SiteStore from '../stores/SiteStore.js';
-import Actions from '../actions/Actions.js';
-import { Alert, Button } from 'react-bootstrap';
+import React, {PropTypes} from 'react';
+import {Button} from 'react-bootstrap';
+import Notification from './Notification.jsx';
 
-export default class Header extends React.Component {
+const Header = ({testNotification, notification, dismissNotification}) => (
+    <div>
+        <h1>SCL Template v0.2</h1>
+        <Notification notification={notification} onDismiss={dismissNotification} />
+        <Button onClick={testNotification} bsStyle="info">Test Notification</Button>
+    </div>
+);
 
-    constructor(props, context) {
-        super(props, context);
-        this.stateChanged = this.stateChanged.bind(this);
-        this.state = {
-            loginOpen: false,
-            notification: null
-        }
-    }
+Header.propTypes = {
+    notification: PropTypes.object.isRequired,
+    testNotification: PropTypes.func.isRequired,
+    user: PropTypes.object,
+    dismissNotification: PropTypes.func.isRequired
+};
 
-    stateChanged() {
-
-        this.setState({
-            notification: SiteStore.getNotification()
-        });
-    }
-
-    componentWillMount() {
-        SiteStore.addChangeListener(this.stateChanged);
-    }
-
-    componentWillUnmount() {
-        SiteStore.removeChangeListener(this.stateChanged);
-    }
-
-    closeNotification() {
-        Actions.setNotification(null);
-    }
-
-    renderNotification() {
-
-        if (this.state.notification) {
-            return (
-                <Alert onDismiss={this.closeNotification}>
-                    {this.state.notification}
-                </Alert>
-            )
-        }
-    }
-
-    testNotification() {
-        Actions.setNotification('This is an alert through flux');
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>SCL Template v0.1</h1>
-                {this.renderNotification()}
-                 <Button onClick={this.testNotification} bsStyle="info">Test Notification</Button>
-            </div>
-        )
-    }
-}
-// Header.propTypes = {
-//     location: React.PropTypes.string.isRequired
-// };
+export default Header;

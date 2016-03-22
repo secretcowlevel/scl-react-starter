@@ -1,42 +1,19 @@
 {
+    "extends": "airbnb",
     "parser": "babel-eslint",
-    "env": {
-        "node": true,
-        "es6": true
-    },
-
-    "plugins": [
-        "react"
-    ],
-
-    "settings": {
-        "ecmascript": 6
-    },
-
-    "ecmaFeatures": {
-        "jsx": true
-    },
-
     "rules": {
-        "comma-spacing": 0,
-        "no-extra-semi": 2,
-        "camelcase": [2, {"properties": "always"}],
-        "brace-style": [2, "1tbs", { "allowSingleLine": true }],
-        "no-underscore-dangle": 0,
-        "strict": 0,
-        "no-trailing-spaces": 0,
-        "no-undef": 1,
-        "react/jsx-no-undef": 2,
-        "no-unused-vars": 2,
-        "react/jsx-uses-vars": 1,
-        "react/jsx-uses-react": 1,
-        "no-console": 1,
-        "eqeqeq": [2, "smart"],
-        "quotes": [2, "single"]
-    },
-
-    "globals": {
-        "document": true,
-        "window": true
+        "indent": [2, 4, {
+            "SwitchCase": 1
+        }],
+        "comma-dangle": [2, "never"],
+        "object-shorthand": [2, "never"],
+        "max-len": [1, 160, 4],
+        "object-curly-spacing": [2, "never"],
+        'react/jsx-indent-props': [2, 4],
+        "react/prop-types": [2, { "ignore": [], customValidators: [] }],
+        # consider turning these on!!
+        "prefer-const": 0,
+        "arrow-body-style": 0,
+        "new-cap": [2, { "capIsNewExceptions": ["DragSource", "DropTarget", "DragDropContext"]}]
     }
 }

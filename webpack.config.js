@@ -1,6 +1,6 @@
-var Webpack = require('webpack');
-var path = require('path');
-var pjson = require('./package.json');
+// const Webpack = require('webpack');
+const path = require('path');
+const pjson = require('./package.json');
 
 module.exports = {
     devtool: 'eval-source-map',
@@ -12,20 +12,24 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, 'js'),
-        filename: pjson.name + '.min.js',
+        filename: `${pjson.name}.min.js`,
         publicPath: 'http://localhost:8080/js/'
     },
     module: {
-        loaders: [{
-            test: /.(js|jsx)?$/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react']
+        loaders: [
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
             },
-            exclude: /node_modules/
-        }]
+            {
+                test: /.(js|jsx)?$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react', 'stage-0']
+                },
+                exclude: /node_modules/
+            }]
     },
     plugins: [
-        new Webpack.HotModuleReplacementPlugin()
     ]
 };

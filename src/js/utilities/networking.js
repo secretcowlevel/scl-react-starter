@@ -1,103 +1,88 @@
-const _ajax = function(options) {
-    if (options.type && options.url) {
-        var xhr = new window.XMLHttpRequest();
-        xhr.open(options.type, options.url, true);
-        if (options.headers) {
-            for (var key in options.headers) {
-                if (options.headers.hasOwnProperty(key)) {
-                    xhr.setRequestHeader(key, options.headers[key]);
-                }
-            }
-        }
-        if (options.beforeSend) {
-            options.beforeSend(xhr);
-        }
+import fetch from 'isomorphic-fetch';
 
-        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+function _ajax(options) {
+    return fetch(options.url, {
+        method: options.type,
+        headers: Object.assign({}, options.headers || {}, {
+            'Content-Type': 'application/json; charset=utf-8'
+        }),
+        body: JSON.stringify(options.data)
+    });
+}
 
-        xhr.onload = () => {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                if (options.success) {
-                    options.success(JSON.parse(xhr.responseText));
-                }
-            } else {
-                this.addNotificationMessage(JSON.parse(xhr.responseText).message, 'error');
-            }
-        };
-
-        xhr.send(JSON.stringify(options.data) || null);
-    }
-};
-
-exports.postData = function(options, callback) {
-    _ajax({
+exports.postData = (options, callback) => {
+    return _ajax({
         type: 'POST',
         url: options.url,
         data: options.data,
-        success: function(response) {
+        success: (response) => {
             if (callback) {
                 callback(response);
             }
         },
-        error: function(response) {
+        error: (response) => {
             if (callback) {
                 callback(response);
             }
         },
-        'dataType': 'json',
+        dataType: 'json',
         headers: options.headers || {}
     });
 };
 
-exports.patchData = function(options, callback) {
-    _ajax({
+exports.patchData = (options, callback) => {
+    return _ajax({
         type: 'PATCH',
         url: options.url,
         data: options.data,
-        success: function(response) {
+        success: (response) => {
             if (callback) {
                 callback(response);
             }
         },
-        error: function(response) {
+        error: (response) => {
             if (callback) {
                 callback(response);
             }
         },
-        'dataType': 'json',
+        dataType: 'json',
         headers: options.headers || {}
     });
 };
 
-exports.deleteData = function(options, callback) {
-    _ajax({
+exports.deleteData = (options, callback) => {
+    return _ajax({
         type: 'DELETE',
         url: options.url,
-        success: function(response) {
+        success: (response) => {
             if (callback) {
                 callback(response);
             }
         },
-        error: function(response) {
+        error: (response) => {
             if (callback) {
                 callback(response);
             }
         },
-        'dataType': 'json',
+        dataType: 'json',
         headers: options.headers || {}
     });
 };
 
-exports.getData = function(options, callback) {
-    _ajax({
+exports.getData = (options, callback) => {
+    return _ajax({
         type: 'GET',
         url: options.url,
         crossDomain: true,
-        success: function(response) {
+        success: (response) => {
             if (callback) {
                 callback(response);
             }
         },
         headers: options.headers || {}
     });
+};
+
+exports.getBaseDomain = () => {
+    return window.localStorage.getItem('scl-server-override') || 'http://localhost:1337';
 };
