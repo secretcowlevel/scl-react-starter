@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Alert} from 'react-bootstrap';
+import Alert from 'react-bootstrap/lib/Alert';
 
 const Notification = ({notification, onDismiss}) => {
     if (notification && notification.text) {

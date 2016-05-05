@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Button} from 'react-bootstrap';
+import Button from 'react-bootstrap/lib/Button';
 import Notification from './Notification.jsx';
 
 const Header = ({testNotification, notification, dismissNotification}) => (

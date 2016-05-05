@@ -1,9 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-var entry = path.resolve(__dirname, 'src/js/', 'app.jsx');
-var nodeModulesPath = path.resolve(__dirname, 'node_modules');
-var pjson = require('./package.json');
-var CompressionPlugin = require('compression-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const entry = path.resolve(__dirname, 'src/js/', 'app.jsx');
+const pjson = require('./package.json');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 
 module.exports = {
@@ -11,23 +10,22 @@ module.exports = {
     entry: entry,
     output: {
         path: path.join(__dirname, 'dist/'),
-        filename: pjson.name + '.min.js'
+        filename: `${pjson.name}.min.js`
     },
     module: {
         loaders: [
             {
-                test: /\.jsx$/,
-                loaders: ['babel'],
-                exclude: [nodeModulesPath]
+                test: /\.json$/,
+                loader: 'json-loader',
+                exclude: /node_modules/
             },
             {
-                test: /\.js$/,
-                exclude: [nodeModulesPath],
-                loader: 'babel'
-            },
-            {
-                test: /\.css$/,
-                loader: 'style!css'
+                test: /.(js|jsx)?$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react', 'stage-0']
+                },
+                exclude: /node_modules/
             }
         ]
     },

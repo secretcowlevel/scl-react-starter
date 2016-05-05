@@ -4,10 +4,7 @@ import Header from '../components/Header.jsx';
 
 const mapStateToProps = (state) => {
     const {notification: notification, user: user} = state;
-    return {
-        notification: notification,
-        user: user
-    };
+    return {notification: notification, user: user};
 };
 
 const mapDispatchToProps = (dispatch) => {

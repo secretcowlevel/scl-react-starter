@@ -5,12 +5,14 @@
         "indent": [2, 4, {
             "SwitchCase": 1
         }],
+        "react/jsx-indent": [1, 4],
         "comma-dangle": [2, "never"],
         "object-shorthand": [2, "never"],
         "max-len": [1, 160, 4],
         "object-curly-spacing": [2, "never"],
         'react/jsx-indent-props': [2, 4],
         "react/prop-types": [2, { "ignore": [], customValidators: [] }],
+        "no-underscore-dangle": [0],
         # consider turning these on!!
         "prefer-const": 0,
         "arrow-body-style": 0,
