@@ -7,6 +7,7 @@ export default class Root extends React.Component {
     static propTypes = {
         children: PropTypes.object
     }
+
     constructor(props) {
         super(props);
         this.state = {
