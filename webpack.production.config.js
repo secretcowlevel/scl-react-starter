@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
-    entry: entry,
+    entry,
     output: {
         path: path.join(__dirname, 'dist/'),
         filename: `${pjson.name}.min.js`
@@ -30,6 +30,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
         new webpack.optimize.UglifyJsPlugin({minimize: true}),
         new webpack.optimize.DedupePlugin(),
         new webpack.NoErrorsPlugin(),
