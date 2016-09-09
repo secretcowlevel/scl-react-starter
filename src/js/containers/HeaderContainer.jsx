@@ -1,10 +1,11 @@
-import {addNotification} from '../actions';
 import {connect} from 'react-redux';
+import {addNotification} from '../actions';
 import Header from '../components/Header.jsx';
 
 const mapStateToProps = (state) => {
-    const {notification: notification, user: user} = state;
-    return {notification: notification, user: user};
+    console.log(`>> mapStateToProps! > ${JSON.stringify(state, null, 4)}`);
+    const {notification, user} = state.app;
+    return {notification, user};
 };
 
 const mapDispatchToProps = (dispatch) => {

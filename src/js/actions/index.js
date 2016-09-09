@@ -12,7 +12,7 @@ export const CLEAR_SESSION = 'CLEAR_SESSION';
 export function addNotification(text, style) {
     return {
         type: SET_NOTIFICATION,
-        text: text,
+        text,
         style: style || 'danger'
     };
 }
@@ -20,8 +20,8 @@ export function addNotification(text, style) {
 function sendLogin(email, password) {
     return {
         type: LOGIN_REQUEST,
-        email: email,
-        password: password
+        email,
+        password
     };
 }
 
@@ -32,7 +32,7 @@ function loginFail(data) {
 export function loginSuccess(user) {
     return {
         type: LOGIN_SUCCESS,
-        user: user
+        user
     };
 }
 
@@ -43,8 +43,8 @@ export function login(email, password) {
             url: `${Networking.getBaseDomain()}/api/login`,
             method: 'POST',
             data: {
-                email: email,
-                password: password
+                email,
+                password
             }
         })
         .then(response => response.json()

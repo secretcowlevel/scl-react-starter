@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-    <section id="footer">
-        <div className="row">
-            <div className="col-md-12"></div>
-        </div>
-    </section>
+    <section id="footer" />
 );
 
 export default Footer;

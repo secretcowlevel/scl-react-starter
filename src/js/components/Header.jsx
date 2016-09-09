@@ -1,20 +1,26 @@
 import React, {PropTypes} from 'react';
-import Button from 'react-bootstrap/lib/Button';
+import RaisedButton from 'material-ui/RaisedButton';
 import Notification from './Notification.jsx';
+import pjson from '../../../package.json';
 
-const Header = ({testNotification, notification, dismissNotification}) => (
-    <div>
-        <h1>SCL Template v0.2.1</h1>
-        <Notification notification={notification} onDismiss={dismissNotification} />
-        <Button onClick={testNotification} bsStyle="info">Test Notification</Button>
-    </div>
-);
+const Header = ({testNotification, notification, dismissNotification}) => {
+    return (
+        <div>
+            <h1>SCL Template v{pjson.version}</h1>
+            <Notification notification={notification} onDismiss={dismissNotification} />
+            <RaisedButton onClick={testNotification} label="Test Notification" primary />
+        </div>
+        );
+};
 
+const {shape, func, string} = PropTypes;
 Header.propTypes = {
-    notification: PropTypes.object.isRequired,
-    testNotification: PropTypes.func.isRequired,
-    user: PropTypes.object,
-    dismissNotification: PropTypes.func.isRequired
+    notification: shape({
+        text: string,
+        style: string
+    }),
+    testNotification: func.isRequired,
+    dismissNotification: func.isRequired
 };
 
 export default Header;

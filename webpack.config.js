@@ -1,12 +1,15 @@
-// const Webpack = require('webpack');
+const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const path = require('path');
 const pjson = require('./package.json');
+
 
 module.exports = {
     devtool: 'eval-source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/dev-server',
+        'webpack/hot/only-dev-server',
+        'react-hot-loader/patch',
         './src/js/app.jsx'
     ],
 
@@ -18,18 +21,19 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.json$/,
-                loader: 'json-loader'
+                test: /.(js|jsx)?$/,
+                loader: 'babel',
+                exclude: /node_modules/
             },
             {
-                test: /.(js|jsx)?$/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react', 'stage-0']
-                },
-                exclude: /node_modules/
-            }]
+                test: /\.json$/,
+                loader: 'json'
+            }],
+        resolveLoader: {
+            packageMains: ['json-loader']
+        }
     },
     plugins: [
+        new DashboardPlugin()
     ]
 };

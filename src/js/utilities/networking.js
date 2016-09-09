@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-function _ajax(options) {
+function ajax(options) {
     return fetch(options.url, {
         method: options.type,
         headers: Object.assign({}, options.headers || {}, {
@@ -11,7 +11,7 @@ function _ajax(options) {
 }
 
 exports.postData = (options, callback) => {
-    return _ajax({
+    return ajax({
         type: 'POST',
         url: options.url,
         data: options.data,
@@ -31,7 +31,7 @@ exports.postData = (options, callback) => {
 };
 
 exports.patchData = (options, callback) => {
-    return _ajax({
+    return ajax({
         type: 'PATCH',
         url: options.url,
         data: options.data,
@@ -51,7 +51,7 @@ exports.patchData = (options, callback) => {
 };
 
 exports.deleteData = (options, callback) => {
-    return _ajax({
+    return ajax({
         type: 'DELETE',
         url: options.url,
         success: (response) => {
@@ -70,7 +70,7 @@ exports.deleteData = (options, callback) => {
 };
 
 exports.getData = (options, callback) => {
-    return _ajax({
+    return ajax({
         type: 'GET',
         url: options.url,
         crossDomain: true,
