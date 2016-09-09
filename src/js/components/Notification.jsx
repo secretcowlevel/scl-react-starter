@@ -1,23 +1,23 @@
 import React, {PropTypes} from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+// import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
+
+const style = {
+    height: 100,
+    width: 100,
+    margin: 20,
+    textAlign: 'center',
+    display: 'block'
+};
 
 const Notification = ({notification, onDismiss}) => {
     if (notification && notification.text) {
         return (
-            <Card>
-                <CardHeader
-                    title="NOTIFICATION"
-                    subtitle={notification.style}
-                />
-                <CardText>
-                    {notification.text}
-                </CardText>
-                <CardActions>
-                    <FlatButton label="close" onClick={onDismiss} />
-                </CardActions>
-
-            </Card>
+            <Paper style={style} onClick={onDismiss} zDepth={5}>
+                {notification.style}
+                - {notification.text}
+            </Paper>
         );
     }
     return <div />;
@@ -25,10 +25,7 @@ const Notification = ({notification, onDismiss}) => {
 
 const {string, shape} = PropTypes;
 Notification.propTypes = {
-    notification: shape({
-        text: string,
-        style: string
-    }),
+    notification: shape({text: string, style: string}),
     onDismiss: PropTypes.func.isRequired
 };
 

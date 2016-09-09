@@ -7,10 +7,10 @@ const pjson = require('./package.json');
 module.exports = {
     devtool: 'eval-source-map',
     entry: [
+        'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        'react-hot-loader/patch',
-        './src/js/app.jsx'
+        './src/js/index.jsx'
     ],
 
     output: {
