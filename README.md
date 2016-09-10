@@ -10,8 +10,8 @@
 .. or don't.
 
 ## TODO/Help Wanted
-- [ ] - Webpack 2
-- [ ] - Redux Devtools
+- [ ] - Webpack 2 [Issue](https://github.com/secretcowlevel/scl-react-starter/issues/2)
+- [ ] - Redux Devtools [Issue](https://github.com/secretcowlevel/scl-react-starter/issues/1)
 
 ## License
 I haven't decided yet. What's the least shitty one? Until this, no license. Don't use it. Or do, I don't care. No stealsies.
