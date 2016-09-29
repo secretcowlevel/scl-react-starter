@@ -84,5 +84,6 @@ exports.getData = (options, callback) => {
 };
 
 exports.getBaseDomain = () => {
-    return window.localStorage.getItem('scl-server-override') || 'http://localhost:1337';
+    return window.localStorage.getItem('scl-server-override') ||
+    process.env.NODE_ENV === 'production' ? 'http://scl.getofftheinter.net' : 'http://localhost:1337';
 };
