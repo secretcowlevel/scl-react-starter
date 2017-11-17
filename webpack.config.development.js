@@ -11,7 +11,7 @@ config.devtool = 'cheap-module-eval-source-map';
 
 config.entry = [
     'react-hot-loader/patch',
-    './src/js/index.jsx'
+    './src/js/'
 ];
 
 config.output.publicPath = '/dist';
