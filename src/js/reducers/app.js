@@ -5,7 +5,7 @@ import {
     LOGIN_SUCCESS,
     CLEAR_SESSION
 } from '../actions/';
-import {safeGetCredentials} from '../utilities/Utilities.js';
+import {safeGetCredentials} from '../utilities/Utilities';
 
 const initialState = {
     notification: {

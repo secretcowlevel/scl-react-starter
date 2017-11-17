@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {addNotification} from '../actions';
-import Header from '../components/Header.jsx';
+import Header from '../components/Header';
 
 const mapStateToProps = (state) => {
     const {notification, user} = state.app;

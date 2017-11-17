@@ -1,5 +1,5 @@
-import Networking from '../utilities/networking.js';
-// import {safeGetCredentials, formatActionForNetwork} from '../utilities/Utilities.js';
+import Networking from '../utilities/networking';
+// import {safeGetCredentials, formatActionForNetwork} from '../utilities/Utilities';
 // actions!
 export const SET_NOTIFICATION = 'SET_NOTIFICATION';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';

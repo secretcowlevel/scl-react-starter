@@ -1,9 +1,10 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Header from '../containers/HeaderContainer.jsx';
-import Footer from './Footer.jsx';
+import Header from '../containers/HeaderContainer';
+import Footer from './Footer';
 
 export default class Root extends React.Component {
 

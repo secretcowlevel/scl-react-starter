@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import App from './App.jsx';
+import App from './app';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -17,8 +17,8 @@ ReactDOM.render(
     </AppContainer>, document.getElementById('scl-container'));
 
 if (module.hot) {
-    module.hot.accept('./App.jsx', () => {
-        const NextApp = require('./App.jsx').default; // eslint-disable-line
+    module.hot.accept('./app', () => {
+        const NextApp = require('./app').default; // eslint-disable-line
 
         ReactDOM.render(
             <AppContainer>

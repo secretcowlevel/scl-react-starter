@@ -2,7 +2,7 @@ import React from 'react';
 
 const Main = () => (
     <div>
-        <h1>Root Route</h1>
+        <h1>Route / Loaded</h1>
     </div>
 );
 
