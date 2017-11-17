@@ -49,7 +49,7 @@ export function login(email, password) {
         })
         .then(response => response.json()
         .catch(() => dispatch(loginFail())))
-        .then(json => {
+        .then((json) => {
             if (json.success) {
                 dispatch(loginSuccess(json.data));
             } else {

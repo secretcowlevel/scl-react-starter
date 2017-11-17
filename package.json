@@ -4,7 +4,8 @@
     "description": "Foundation for SCL React Projects",
     "main": "src/app.js",
     "scripts": {
-        "start": "webpack-dev-server --config webpack.config.development.js --content-base static/"
+        "start": "webpack-dev-server --config webpack.config.development.js --content-base static/",
+        "lint": "eslint ./"
     },
     "author": "justin@secretcowlevel.com",
     "license": "none",

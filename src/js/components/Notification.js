@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import Paper from 'material-ui/Paper';
-import FlatButton from 'material-ui/FlatButton';
 
 const style = {
     height: 100,

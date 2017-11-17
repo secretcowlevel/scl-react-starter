@@ -11,7 +11,7 @@ const Header = ({testNotification, notification, dismissNotification}) => {
             <Notification notification={notification} onDismiss={dismissNotification} />
             <RaisedButton onClick={testNotification} label="Test Redux" primary />
         </div>
-        );
+    );
 };
 
 const {shape, func, string} = PropTypes;
