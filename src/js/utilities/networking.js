@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch'
 
 function ajax(options) {
     return fetch(options.url, {
@@ -7,7 +7,7 @@ function ajax(options) {
             'Content-Type': 'application/json; charset=utf-8'
         }),
         body: JSON.stringify(options.data)
-    });
+    })
 }
 
 exports.postData = (options, callback) => {
@@ -17,18 +17,18 @@ exports.postData = (options, callback) => {
         data: options.data,
         success: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         error: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         dataType: 'json',
         headers: options.headers || {}
-    });
-};
+    })
+}
 
 exports.patchData = (options, callback) => {
     return ajax({
@@ -37,18 +37,18 @@ exports.patchData = (options, callback) => {
         data: options.data,
         success: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         error: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         dataType: 'json',
         headers: options.headers || {}
-    });
-};
+    })
+}
 
 exports.deleteData = (options, callback) => {
     return ajax({
@@ -56,18 +56,18 @@ exports.deleteData = (options, callback) => {
         url: options.url,
         success: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         error: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         dataType: 'json',
         headers: options.headers || {}
-    });
-};
+    })
+}
 
 exports.getData = (options, callback) => {
     return ajax({
@@ -76,14 +76,14 @@ exports.getData = (options, callback) => {
         crossDomain: true,
         success: (response) => {
             if (callback) {
-                callback(response);
+                callback(response)
             }
         },
         headers: options.headers || {}
-    });
-};
+    })
+}
 
 exports.getBaseDomain = () => {
-    return window.localStorage.getItem('scl-server-override') ||
-    process.env.NODE_ENV === 'production' ? 'http://scl.getofftheinter.net' : 'http://localhost:1337';
-};
+    return window.localStorage.getItem('scl-server-override')
+    || process.env.NODE_ENV === 'production' ? 'http://scl.getofftheinter.net' : 'http://localhost:1337'
+}
