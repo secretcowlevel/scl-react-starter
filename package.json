@@ -1,6 +1,6 @@
 {
     "name": "scl",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "Foundation for SCL React Projects",
     "main": "src/app.js",
     "scripts": {
