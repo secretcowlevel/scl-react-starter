@@ -1,19 +1,23 @@
-import React, {Fragment} from 'react'
-// import ReactDOM from 'react-dom';
-// import {Provider} from 'react-redux';
-// import {Router, hashHistory} from 'react-router';
-// import {syncHistoryWithStore} from 'react-router-redux';
-// import configureStore from './store/configureStore';
-// import routes from './routes';
-
-// const store = configureStore();
-// const history = syncHistoryWithStore(hashHistory, store);
-
+import { hot } from 'react-hot-loader/root'
+import React from 'react'
+// import {
+//   BrowserRouter, Route, Switch, Redirect
+// } from 'react-router-dom'
+// import App from './app'
+// import Home from './containers/home'
 
 const App = () => (
-    <Fragment>
-        <h1>Route Loaded</h1>
-    </Fragment>
+  <div>Hello World</div>
 )
 
-export default App
+/*
+<BrowserRouter>
+  <Switch>
+    <Route exact path='/' component={Home} />
+    <Redirect from='*' to='/' />
+  </Switch>
+</BrowserRouter>
+
+*/
+
+export default hot(App)

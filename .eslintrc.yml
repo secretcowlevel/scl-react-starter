@@ -1,0 +1,9 @@
+extends:
+  - standard
+  - standard-react
+parser: babel-eslint
+settings:
+  import/resolver:
+    node:
+      paths:
+        - app/js
