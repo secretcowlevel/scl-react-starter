@@ -13,8 +13,8 @@ export default class extends Component {
     render () {
       return (
         <Fragment>
-          <h1>This is the home route</h1>
-          <Link to='/profile'>go to profile</Link>
+          <h1>This is the profile route</h1>
+          <Link to='/'>go to home</Link>
         </Fragment>
       )
     }

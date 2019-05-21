@@ -10,19 +10,20 @@ config.mode = 'development'
 config.devtool = 'cheap-module-eval-source-map'
 
 config.entry = [
-  'react-hot-loader/patch',
   './src/js/'
 ]
 
 config.devServer = {
-  historyApiFallback: true,
-  hot: true
+  historyApiFallback: true
+}
+
+config.resolve.alias = {
+  'react-dom': '@hot-loader/react-dom'
 }
 
 config.output.publicPath = '/dist'
 
 config.plugins.push(
-  new webpack.HotModuleReplacementPlugin()
 )
 
 module.exports = config
