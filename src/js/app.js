@@ -4,8 +4,8 @@ import {
   BrowserRouter, Route, Switch, Redirect
 } from 'react-router-dom'
 // import App from './app'
-import Home from './containers/home'
-import Profile from './containers/profile'
+import Home from './routes/home'
+import Profile from './routes/profile'
 
 const App = () => (
   <BrowserRouter>

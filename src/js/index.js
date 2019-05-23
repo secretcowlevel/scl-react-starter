@@ -1,10 +1,14 @@
 import React from 'react'
-
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+
 import App from './app'
 
 import configureStore from './store/configureStore'
 
-configureStore()
+const store = configureStore()
 
-ReactDOM.render(<App />, document.getElementById('scl-container'))
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('scl-container'))

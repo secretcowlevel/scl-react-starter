@@ -1,0 +1,1 @@
+export const SET_UI_MESSAGE = 'SET_UI_MESSAGE'

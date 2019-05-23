@@ -1,12 +1,22 @@
-// import { combineReducers } from 'redux'
+import { combineReducers } from 'redux'
+import { SET_UI_MESSAGE } from '../constants'
 
 const initialState = {
-  banana: false
+  message: ''
 }
 
-export default function rootReducer (state = initialState, action) {
+function uiReducer (state = initialState, action) {
   switch (action.type) {
+    case SET_UI_MESSAGE:
+      return {
+        ...state,
+        message: action.message
+      }
     default:
       return state
   }
 }
+
+export default combineReducers({
+  ui: uiReducer
+})
