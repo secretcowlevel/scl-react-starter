@@ -23,7 +23,6 @@ config.resolve.alias = {
 
 config.output.publicPath = '/dist'
 
-config.plugins.push(
-)
+config.plugins.push()
 
 module.exports = config
